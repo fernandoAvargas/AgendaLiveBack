@@ -23,7 +23,7 @@ public class LiveController {
     LiveService liveService;
 
     @GetMapping("/lives")
-    public ResponseEntity<Page<LiveDocument>> getAllLives(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
+      public ResponseEntity<Page<LiveDocument>> getAllLives(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
                                                           @RequestParam(required = false) String flag){
         Page<LiveDocument> livePage = liveService.findAll(pageable, flag);
         if(livePage.isEmpty()) {
